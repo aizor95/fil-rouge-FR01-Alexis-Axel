@@ -1,15 +1,16 @@
+
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CampusLink - Nom de la page</title>
-  <!-- Lien vers la feuille de style CSS -->
+  <title>CampusLink - Salles</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
 
-  <!-- 1. L'en-tête commun à toutes les pages (logo + menu de navigation) -->
+<body>
   <header>
     <div class="logo">CampusLink</div>
     <nav>
@@ -22,13 +23,43 @@
     </nav>
   </header>
 
-  
   <main>
     <h1>Les salles de cours</h1>
-    
+    <section aria-labelledby="liste-salles">
+      <h2 id="liste-salles">Liste des salles</h2>
+      <div class="salles">
+        <article class="salle">
+          <h3>Salle B204</h3>
+          <p><strong>Capacité :</strong> 30 personnes</p>
+          <p><strong>Étage :</strong> 2e étage</p>
+          <p><strong>Équipements :</strong> vidéoprojecteur, ordinateur</p>
+          <p><strong>État :</strong> Disponible</p>
+        </article>
+        <article class="salle">
+          <h3>Salle B205</h3>
+          <p><strong>Capacité :</strong> 25 personnes</p>
+          <p><strong>Étage :</strong> 2e étage</p>
+          <p><strong>Équipements :</strong> vidéoprojecteur, tableau interactif</p>
+          <p><strong>État :</strong> Disponible</p>
+        </article>
+        <article class="salle">
+          <h3>Salle C101</h3>
+          <p><strong>Capacité :</strong> 40 personnes</p>
+          <p><strong>Étage :</strong> 1er étage</p>
+          <p><strong>Équipements :</strong> vidéoprojecteur, ordinateurs</p>
+          <p><strong>État :</strong> En maintenance</p>
+        </article>
+        <article class="salle">
+          <h3>Salle C102</h3>
+          <p><strong>Capacité :</strong> 20 personnes</p>
+          <p><strong>Étage :</strong> 1er étage</p>
+          <p><strong>Équipements :</strong> écran, tableau interactif</p>
+          <p><strong>État :</strong> Disponible</p>
+        </article>
+      </div>
+    </section>
   </main>
 
-  
   <footer>
     <p>&copy; 2026 CampusLink - Tous droits réservés</p>
   </footer>
