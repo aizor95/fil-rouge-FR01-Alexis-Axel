@@ -34,6 +34,11 @@ nav a {
     font-size: 1.3rem;
 }
 
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
 /* Page des salles */
 
 .salles {
@@ -46,5 +51,29 @@ nav a {
     background-color: white;
     padding: 1.5 rem;
     border-radius: 8px;
+    border-left: 5px solid;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.salle.disponible {
+    border-left-color: #3ddc97;
+}
+
+.salle.maintenance {
+    border-left-color: #f5b700;
+}
+
+.etat {
+    display: inline-block;
+    border-radius: 20px;
+}
+
+.disponible .etat {
+    background-color: #3ddc97;
+    color: white;
+}
+
+.maintenance .etat {
+    background-color: #f5b700;
+    color: white;
 }
