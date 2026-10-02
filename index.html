@@ -25,7 +25,60 @@
   
   <main>
     <h1>Tableau de bord</h1>
-    
+    <section id="Infos db">
+    <ul>
+      <li>
+        <article class="Élement db">
+          <h2>Salles de classe disponibles :</h2>
+          <h3>26</h3>
+          <a class="bouton" href="#formulaire">Réserver une salle ?</a>
+        </article>
+      </li>
+      <li>
+        <article class="Élement db">
+          <h2>Incidents en cours :</h2>
+          <h3>8</h3>
+        </article>
+      </li>
+      <li>
+        <article class="Élement db">
+          <h2>Incidents en réparation :</h2>
+          <h3>12</h3>
+        </article>
+      </li>
+    </ul>
+    </section>
+    <br> <br>
+    <section id="formulaire">
+    <h2>Réserver une salle</h2>
+    <form action="#" method="post">
+      <p>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" autocomplete="name" required>
+      </p>
+      <p>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" autocomplete="email" required>
+      </p>
+      <p>
+        <label for="salle">Salle</label>
+        <input type="text" id="salle" name="salle" autocomplete="Salle" required>
+      </p>
+      <p>
+        <label for="heure_deb">Heure de début</label>
+        <input type="time" id="heure_deb" name="heure de début" autocomplete="00H00" required>
+      </p>
+      <p>
+        <label for="heure_fin">Heure de fin</label>
+        <input type="time" id="heure_fin" name="heure de fin" autocomplete="23H59" required>
+      </p>
+      <p>
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" required>
+      </p>
+      <button type="submit">Envoyer l'incident</button>
+    </form>
+  </section>
   </main>
 
   
