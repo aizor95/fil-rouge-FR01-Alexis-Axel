@@ -1,21 +1,46 @@
-/* Structure général */
+/* Structure générale */
+
+* {
+    box-sizing: border-box;
+}
 
 body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     background-color: #eaf0eb;
+    color: #122033;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
 }
+
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3rem;
+    flex: 1;
+}
+
 
 /* Header */
 
 header {
-    background-color: black;
     width: 100%;
+    background-color: #122033;
     display: flex;
     align-items: center;
+    padding: 1rem 5%;
+    gap: 2rem;
+    box-shadow: 0 4px 18px rgba(18, 32, 51, 0.25);
 }
 
 .logo {
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
+    font-weight: 800;
+    white-space: nowrap;
 }
 
 nav {
@@ -24,35 +49,204 @@ nav {
 
 nav ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
     list-style: none;
-    padding: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
 nav a {
+    display: inline-block;
     color: white;
-    font-size: 1.3rem;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    margin: 0 0 2rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
 }
+
+h2 {
+    line-height: 1.3;
+}
+
+
+/* tableau de bord */
+
+main > section:first-of-type > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+main > section:first-of-type > ul > li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Cartes statistiques */
+
+.db {
+    height: 100%;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(18, 32, 51, 0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.db:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(18, 32, 51, 0.15);
+}
+
+.db h2 {
+    margin: 0 0 0.8rem;
+    font-size: 1.1rem;
+    color: #52606d;
+}
+
+.db h3 {
+    margin: 0 0 1.2rem;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: #122033;
+}
+
+
+/* Bouton */
+
+.bouton {
+    display: inline-block;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    background-color: #3ddc97;
+    color: #122033;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.bouton:hover {
+    background-color: #2fc986;
+    transform: translateY(-1px);
+}
+
+
+/* Formulaire */
+
+#formulaire {
+    margin-top: 2.5rem;
+
+    background-color: white;
+    padding: 2rem;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(18, 32, 51, 0.10);
+}
+
+#formulaire h2 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+
+    font-size: 1.5rem;
+}
+
+#formulaire form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem 1.5rem;
+}
+
+#formulaire p {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+#formulaire label {
+    margin-bottom: 0.4rem;
+
+    font-weight: 700;
+    color: #122033;
+}
+
+#formulaire input {
+    width: 100%;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid #cbd5dc;
+    border-radius: 8px;
+    background-color: #f8faf9;
+    color: #122033;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#formulaire input:focus {
+    outline: none;
+    border-color: #3ddc97;
+    box-shadow: 0 0 0 3px rgba(61, 220, 151, 0.18);
+}
+
+#formulaire button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #122033;
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+#formulaire button:hover {
+    background-color: #1d3552;
+    transform: translateY(-1px);
+}
+
 
 /* Page des salles */
 
 .salles {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1.5 rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
 }
 
 .salle {
     background-color: white;
-    padding: 1.5 rem;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 10px;
     border-left: 5px solid;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.salle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.14);
 }
 
 .salle.disponible {
@@ -63,9 +257,17 @@ h1 {
     border-left-color: #f5b700;
 }
 
+
+/* État de la salle */
+
 .etat {
     display: inline-block;
+
+    padding: 0.25rem 0.7rem;
     border-radius: 20px;
+
+    font-size: 0.85rem;
+    font-weight: 700;
 }
 
 .disponible .etat {
@@ -76,4 +278,69 @@ h1 {
 .maintenance .etat {
     background-color: #f5b700;
     color: white;
+}
+
+
+/* Footer */
+
+footer {
+    background-color: #122033;
+    color: white;
+
+    text-align: center;
+
+    padding: 1rem;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+
+/* Responsive */
+
+@media (max-width: 800px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    nav ul {
+        justify-content: center;
+    }
+    main > section:first-of-type > ul {
+        grid-template-columns: 1fr;
+    }
+    .salles {
+        grid-template-columns: 1fr;
+    }
+    #formulaire form {
+        grid-template-columns: 1fr;
+    }
+    #formulaire button {
+        grid-column: auto;
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    main {
+        padding: 2rem 1rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    #formulaire {
+        padding: 1.25rem;
+    }
+    nav ul {
+        gap: 0.25rem;
+    }
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.7rem;
+    }
 }
