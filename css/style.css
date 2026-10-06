@@ -501,6 +501,9 @@ footer p {
     .details {
         grid-template-columns: 1fr;
     }
+    .equipements {
+        grid-template-columns: 1fr;
+    }
 }
 
 
