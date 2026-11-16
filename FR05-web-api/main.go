@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"encoding/json"
 )
 
 func main() {
@@ -21,4 +22,21 @@ func main() {
 		return
 	}
 	fmt.Println(string(body))
+}
+
+type Meteo struct {
+	Current map[string]interface{} `json:"current"`
+	Time string `json:"code"`
+	Temperature float64 `json:"places"`
+	Vent float64 `json:"projecteur"`
+}
+
+func decodeMeteo(resp *http.Response) error {
+	var m Meteo
+	err := json.NewDecoder(resp.Body).Decode(&m)
+	if err != nil {
+		return fmt.Errorf("JSON illisible : %w", err)
+	}
+	fmt.Println("Météo du Campus à",m.Time, " :", m.Temperature, "°C, vent :", m.Vent, "km/h")
+	return err
 }
