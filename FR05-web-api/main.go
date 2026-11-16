@@ -42,25 +42,25 @@ func decodeMeteo(resp *http.Response) error {
 }
 
 func recupererMeteo(baseURL string, lat, lon float64) (Meteo, error) {
-	url := baseURL
+	url := fmt.Sprintf("%s/v1/forecast?latitude=%g&longitude=%g&current=temperature_2m,wind_speed_10m", baseURL, lat, lon)
 	resp, err := http.Get(url)
 	if err != nil {
 		fmt.Println("Erreur lors de la requête :", err)
-		return Meteo{}, fmt.Errorf("Mauvais URL :", err)
+		return Meteo{}, fmt.Errorf("Mauvais URL : %d", err)
 	}
 	defer resp.Body.Close()
 	fmt.Println(resp.Status)
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
 		fmt.Println("Erreur lors de la lecture :", err)
-		return Meteo{}, fmt.Errorf("Erreur lors du décodage", err)
+		return Meteo{}, fmt.Errorf("Erreur lors du décodage : %d", err)
 	}
 	fmt.Println(string(body))
 	
 	
 	if resp.StatusCode != http.StatusOK {
 		fmt.Println("Erreur trouvée :", resp.StatusCode)
-		return Meteo{}, fmt.Errorf("L'API a renvoyé :", resp.StatusCode)
+		return Meteo{}, fmt.Errorf("L'API a renvoyé : %d", resp.StatusCode)
 	}
 	return Meteo{}, nil
 }
